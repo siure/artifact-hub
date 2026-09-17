@@ -1,0 +1,6 @@
+anyio==4.14.2
+click==8.4.2
+h11==0.16.0
+idna==3.18
+starlette==0.52.1
+uvicorn==0.52.1

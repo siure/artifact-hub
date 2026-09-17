@@ -1,0 +1,18 @@
+[Unit]
+Description=Clean expired Artifact Hub files
+After=artifact-hub.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/.local/share/artifact-hub
+EnvironmentFile=%h/.config/artifact-hub/service.env
+ExecStart=%h/.local/lib/artifact-hub/venv/bin/artifact-hub gc
+UMask=0077
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=%h/.local/share/artifact-hub
+RestrictSUIDSGID=yes
+LockPersonality=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6

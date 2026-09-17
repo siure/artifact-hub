@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Artifact Hub HTML plan</title>
+<style>
+  body { max-width: 48rem; margin: 3rem auto; font: 16px/1.5 system-ui; color: #1f2937; }
+  button { padding: .6rem 1rem; }
+</style>
+<h1>Interactive HTML plan</h1>
+<p>This self-contained page runs local JavaScript under the Artifact Hub sandbox.</p>
+<button id="check">Run interaction</button>
+<p id="result"></p>
+<script>
+  document.querySelector('#check').addEventListener('click', () => {
+    document.querySelector('#result').textContent = 'Interaction works; network access stays blocked.';
+  });
+</script>

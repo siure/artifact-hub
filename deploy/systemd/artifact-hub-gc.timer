@@ -1,0 +1,12 @@
+[Unit]
+Description=Run Artifact Hub cleanup hourly
+
+[Timer]
+OnCalendar=hourly
+Persistent=yes
+RandomizedDelaySec=5m
+AccuracySec=1m
+Unit=artifact-hub-gc.service
+
+[Install]
+WantedBy=timers.target
