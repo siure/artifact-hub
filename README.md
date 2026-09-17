@@ -50,7 +50,9 @@ https://geekbox.tail3454ce.ts.net/a/ARTIFACT_ID/report.pdf
 
 The server infers the content type from the filename. Use the appropriate extension. Commands print only the URL on success; failures print to stderr and exit nonzero.
 
-Every upload creates a new immutable artifact, even when filenames are identical. Artifacts expire after the server-configured lifetime, which defaults to 14 days.
+Every upload creates a new immutable artifact, even when filenames are identical. Artifacts expire after the server-configured lifetime, which defaults to 30 days.
+
+To change retention, set `ARTIFACT_HUB_DEFAULT_TTL` in the server's `~/.config/artifact-hub/service.env` and restart `artifact-hub.service`. The value is in seconds: `2592000` is 30 days. It applies to new uploads and new named-plan versions; existing artifacts keep their recorded expiry dates. Retention is configured on the server, not per publisher or upload.
 
 ## Named HTML plans
 

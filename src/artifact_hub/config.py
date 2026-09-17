@@ -61,7 +61,7 @@ class Config:
             public_base_url=base_url,
             host=os.environ.get("ARTIFACT_HUB_HOST", "127.0.0.1"),
             port=port,
-            default_ttl_seconds=_int_env("ARTIFACT_HUB_DEFAULT_TTL", 14 * 24 * 3600),
+            default_ttl_seconds=_int_env("ARTIFACT_HUB_DEFAULT_TTL", 30 * 24 * 3600),
             max_artifact_bytes=_int_env("ARTIFACT_HUB_MAX_BYTES", 512 * MIB),
             storage_quota_bytes=_int_env("ARTIFACT_HUB_QUOTA_BYTES", 25 * GIB),
             max_concurrent_uploads=max(1, _int_env("ARTIFACT_HUB_MAX_UPLOADS", 2)),

@@ -49,4 +49,6 @@ tailscale serve status
 
 Reinstall after source changes with `./scripts/install-user.sh`. This restarts the service and preserves existing configuration and tokens. Run client setup separately on a new machine.
 
-Default limits are 14 days of retention, 512 MiB per artifact, 25 GiB total storage and two concurrent uploads. Expired artifacts immediately return `404`; the hourly cleanup timer later removes files and metadata. Named plans expire when their latest version expires.
+Default limits are 30 days of retention, 512 MiB per artifact, 25 GiB total storage and two concurrent uploads. Expired artifacts immediately return `404`; the hourly cleanup timer later removes files and metadata. Named plans expire when their latest version expires.
+
+To change retention, edit `ARTIFACT_HUB_DEFAULT_TTL` in the server's `~/.config/artifact-hub/service.env`. The value is in seconds (`2592000` for 30 days). Apply it with `systemctl --user restart artifact-hub.service`. Only new uploads and new named-plan versions use the changed lifetime; existing expiry dates remain unchanged. Publishers cannot override retention per upload.
